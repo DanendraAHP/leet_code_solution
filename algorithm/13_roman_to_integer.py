@@ -46,6 +46,7 @@ It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 import sys
 class Solution:
     def romanToInt(self, s: str) -> int:
+<<<<<<< HEAD
         print('masuk func')
         #const
         CONST = {
@@ -97,6 +98,21 @@ class Solution:
             #print(char, char_idx, num)
         return num
                     
+=======
+        ROMAN_CHAR = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
+        ROMAN_VAL = [1, 5, 10, 50, 100, 500, 1000]
+        num = 0
+        for char_idx, char in enumerate(s):
+            if char_idx==len(s)-1:
+                num+=ROMAN_VAL[ROMAN_CHAR.index(char)]
+            else:
+                if ROMAN_VAL[ROMAN_CHAR.index(char)] < ROMAN_VAL[ROMAN_CHAR.index(s[char_idx+1])]:
+                    num-=ROMAN_VAL[ROMAN_CHAR.index(char)]
+                else:
+                    num+=ROMAN_VAL[ROMAN_CHAR.index(char)]
+        return num
+
+>>>>>>> 58947a9d13fe5aa6f2b64aca864e577c23b653bc
 def main():
     # read the input
     txt = sys.argv[1]
